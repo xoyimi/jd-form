@@ -10,9 +10,7 @@
 </template>
 
 <script>
-
     import Detail from "./Detail";
-
     export default {
         name: 'Home',
         data() {
@@ -1453,7 +1451,14 @@
                 if (this.name && this.phone) {
                     for (let i of this.users) {
                         if (i.name.indexOf(this.name) !== -1 && i.phone.indexOf(this.phone) !== -1) {
-                            this.$router.push({name: 'Detail',params:{date:i.date,name:i.name}})
+                            let date = i.date.substring(0, 4) +
+                                '-' +
+                                i.date.substring(4, 6) +
+                                '-' +
+                                i.date.substring(6, 8)
+                            date = new Date(date).getTime()
+                            let leftTime = Math.floor((Date.now()-date)/(1000*60*60*24))
+                            this.$router.push({name: 'Detail',params:{date:leftTime,name:i.name,}})
                             return;
                         }
                     }

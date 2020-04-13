@@ -20,10 +20,6 @@
         mounted() {
             this.name = this.$route.params.name
             this.date = this.$route.params.date
-            this.time = new Date().toLocaleDateString()
-            this.time=/this.time/
-            console.log(this.time)
-
         }
     }
 </script>
@@ -34,18 +30,29 @@
         background-image: url("../assets/images/bg2.jpg");
         background-size: 100%;
         background-repeat: no-repeat;
-        background-position: center;
+        background-position: top;
 
     }
     .name{
         position: absolute;
-        top: 182px;
-        left: 128px;
-        font-size: 21px;
-        font-weight:700;
+        top: 55vw;
+        left: 32vw;
+        font-size: 5.4vw;
+        font-weight:900;
         color:  #89593a;
         border-bottom: 5px solid #89593a;
-        letter-spacing:6px;
+        letter-spacing:1vw;
+        text-align: center;
+    }
+    .date{
+        position: absolute;
+        top: 73vw;
+        left: 46vw;
+        font-size: 5vw;
+        font-weight:900;
+        color:  #89593a;
+        border-bottom: 5px solid #89593a;
+        letter-spacing:1vw;
         text-align: center;
     }
 </style>
