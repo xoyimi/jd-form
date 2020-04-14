@@ -1,16 +1,24 @@
 <template>
     <div class="home">
-        <form id="form" @submit="checkForm" action="">
+        <div class="someImg">
+            <img class="logo" src="../assets/images/logo.png" alt="">
+            <img class="a1 " src="../assets/images/a1.png" alt="">
+            <img class="a2 " src="../assets/images/a2.png" alt="">
+            <img class="a3 " src="../assets/images/a3.png" alt="">
+            <img class="a4 " src="../assets/images/a4.png" alt="">
+        </div>
+        <div id="form" >
             <input type="text" placeholder="请输入姓名" v-model="name">
             <input type="number" placeholder="请输入手机尾号后四位" v-model="phone">
-            <input type="submit" value="提交">
-        </form>
+            <input type="submit" value="提交" @click="checkForm">
+        </div>
 
     </div>
 </template>
 
 <script>
     import Detail from "./Detail";
+
     export default {
         name: 'Home',
         data() {
@@ -18,6 +26,7 @@
                 name: '',
                 phone: '',
                 users: [
+                    {"name": "1", "date": "20180501", "phone": "1111"},
                     {"name": "陆建强", "date": "20180501", "phone": "9949"},
                     {"name": "阮琪", "date": "20071201", "phone": "6821"},
                     {"name": "胡国华", "date": "19941201", "phone": "5916"},
@@ -1448,28 +1457,34 @@
         },
         methods: {
             checkForm(e) {
-                if (this.name && this.phone) {
+                if (this.name && this.phone && this.phone.length === 4) {
                     for (let i of this.users) {
                         if (i.name.indexOf(this.name) !== -1 && i.phone.indexOf(this.phone) !== -1) {
                             let date = i.date.substring(0, 4) +
-                                '-' +
+                                '/' +
                                 i.date.substring(4, 6) +
-                                '-' +
+                                '/' +
                                 i.date.substring(6, 8)
                             date = new Date(date).getTime()
-                            let leftTime = Math.floor((Date.now()-date)/(1000*60*60*24))
-                            this.$router.push({name: 'Detail',params:{date:leftTime,name:i.name,}})
+                            let leftTime = Math.floor((Date.now() - date) / (1000 * 60 * 60 * 24))
+                            this.$router.push({
+                                name: 'Detail',
+                                params: {
+                                    date: leftTime,
+                                    name: i.name,
+                                }
+                            })
                             return;
                         }
                     }
                     alert('对不起，请输入正确信息')
-                    this.name='';
-                    this.phone='';
+                    this.name = '';
+                    this.phone = '';
                     return
                 }
+                if (this.phone!==4) alert("请输入手机尾号后四位")
                 if (!this.name) alert("请输入姓名");
-                if (!this.age) alert("请输入手机号");
-
+                if (!this.phone) alert("请输入手机号");
                 e.preventDefault();
             }
         }
@@ -1484,15 +1499,44 @@
         background-repeat: no-repeat;
         background-position: center;
     }
-
+    .someImg img{
+        position: absolute;
+    }
+    .logo{
+        width: 30vw;
+        top: 8vw;
+        left: 6vw;
+    }
+    .a1{
+        width: 26vw;
+        top: 32vw;
+        left: 36vw;
+    }
+    .a2{
+        width: 68vw; top: 42vw; left: 17vw;
+    }
+    .a3{
+        width: 30vw;
+        top: 56vw;
+        left: 35vw;
+    }
+    .a4{
+        width: 21vw;
+        top: 61vw;
+        left: 39vw;
+    }
     #form {
         position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
+        left: 25vw;
+        top: 73vw;
+        width: 50vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
-    #form input {
+     input {
         font-size: 13px;
         width: 155px;
         height: 32px;
@@ -1501,20 +1545,23 @@
         outline: none;
         border: 2px solid #89593a;
         padding: 0 0 0 10px;
-        margin-top: 10px;
+        margin-top: 20px;
         color: #89593a;
         background-color: #cfd2d3;
     }
 
-    #form input::placeholder {
+     input::placeholder {
         color: #89593a;
     }
 
-    #form input:last-child {
+     input:last-child {
+         font-size: 18px;
+         letter-spacing: 5px;
+         text-align: center;
         border: 1px solid #fff;
         padding: 0;
         background: linear-gradient(#eb9225, #f1601b);
-        width: 50%;
+        width: 160px;
         color: #fff;
     }
 
