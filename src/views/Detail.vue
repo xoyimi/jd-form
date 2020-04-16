@@ -15,6 +15,7 @@
         </div>
         <div class="name">{{this.$route.params.name}}</div>
         <div class="date">
+            <img v-if="wanwei" class="wanwei" :src='num[wanwei]' alt="">
             <img v-if="qianwei" class="qianwei" :src='num[qianwei]' alt="">
             <img v-if="baiwei" class="baiwei" :src='num[baiwei]' alt="">
             <img v-if="shiwei" class="shiwei" :src='num[shiwei]' alt="">
@@ -38,6 +39,7 @@
                 shiwei: '',
                 baiwei: '',
                 qianwei: '',
+                wanwei:'',
                 num: [
                     require('@/assets/images/0.png'), require('@/assets/images/1.png'), require('@/assets/images/2.png'),
                     require('@/assets/images/3.png'), require('@/assets/images/4.png'), require('@/assets/images/5.png'),
@@ -62,6 +64,12 @@
                 this.shiwei = date[2]
                 this.baiwei = date[1]
                 this.qianwei = date[0]
+            }else if (length == 5) {
+                this.gewei = date[4]
+                this.shiwei = date[3]
+                this.baiwei = date[2]
+                this.qianwei = date[1]
+                this.wanwei = date[0]
             }
         },
         mounted() {
@@ -69,7 +77,7 @@
                 html2canvas(this.$refs.detail,).then((canvas) => {
                     this.saveImg = canvas.toDataURL('image/png')
                 })
-            }, 400)
+            }, 1500)
         }
     }
 </script>
@@ -77,7 +85,7 @@
 <style scoped>
     .detail {
         height: 100%;
-        background-image: url("../assets/images/bg2.jpg");
+        background-image: url("../assets/images/bg.jpg");
         background-size: 100%;
         background-repeat: no-repeat;
         background-position: top;
@@ -109,7 +117,7 @@
     }
 
     .date {
-        width: 25vw;
+        width: 24vw;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -119,7 +127,7 @@
     }
 
     .date img {
-        width: 6vw;
+        width: 5vw;
     }
 
     /*.qianwei{*/

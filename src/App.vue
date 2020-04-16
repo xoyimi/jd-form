@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-
+    <audio autoplay preload="auto" >
+      <source src="../src/assets/images/bgm.mp3">
+    </audio>
     <router-view/>
   </div>
 </template>

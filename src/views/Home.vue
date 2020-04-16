@@ -6,6 +6,7 @@
             <img class="a2 " src="../assets/images/a2.png" alt="">
             <img class="a3 " src="../assets/images/a3.png" alt="">
             <img class="a4 " src="../assets/images/a4.png" alt="">
+            <img class="build zoomInLeft" src="../assets/images/build1.png" alt="">
         </div>
         <div id="form" >
             <input type="text" placeholder="请输入姓名" v-model="name">
@@ -17,7 +18,6 @@
 </template>
 
 <script>
-    import Detail from "./Detail";
 
     export default {
         name: 'Home',
@@ -26,7 +26,7 @@
                 name: '',
                 phone: '',
                 users: [
-                    {"name": "1", "date": "20180501", "phone": "1111"},
+                    {"name": "1", "date": "19800501", "phone": "1111"},
                     {"name": "陆建强", "date": "20180501", "phone": "9949"},
                     {"name": "阮琪", "date": "20071201", "phone": "6821"},
                     {"name": "胡国华", "date": "19941201", "phone": "5916"},
@@ -1494,10 +1494,9 @@
     .home {
         position: relative;
         height: 100%;
-        background-image: url("../assets/images/bg1.jpg");
+        background-image: url("../assets/images/bg.jpg");
         background-size: 100%;
         background-repeat: no-repeat;
-        background-position: center;
     }
     .someImg img{
         position: absolute;
@@ -1564,5 +1563,12 @@
         width: 160px;
         color: #fff;
     }
+
+     .build{
+         animation-duration: 1s;
+         left: 0;
+         top: 119vw;
+         width: 74vw;
+     }
 
 </style>
