@@ -1,27 +1,29 @@
 <template>
-    <div ref="detail" class="detail">
-        <!-- 保存图片-->
-        <img class="saveImg" :src="saveImg">
-        <div class="imgIn">
-            <img class="logo" src="../assets/images/logo.png" alt="">
-            <img class="a1 " src="../assets/images/a1.png" alt="">
-            <img class="a2 " src="../assets/images/a2.png" alt="">
-            <img class="a3 " src="../assets/images/a3.png" alt="">
-            <img class="a4 " src="../assets/images/a4.png" alt="">
-            <img class="a5 " src="../assets/images/a5.png" alt="">
-            <img class="a6 " src="../assets/images/a6.png" alt="">
-            <img class="a7 " src="../assets/images/a7.png" alt="">
-            <img class="shareBtn" src="../assets/images/share.png">
+    <div class="detail">
+        <img class="shareBtn" src="../assets/images/share.png">
+        <div ref="detail"  class="detail">
+            <!-- 保存图片-->
+            <img class="saveImg" :src="saveImg">
+            <div class="imgIn">
+                <img class="logo" src="../assets/images/logo.png" alt="">
+                <img class="a1 " src="../assets/images/a1.png" alt="">
+                <img class="a2 " src="../assets/images/a2.png" alt="">
+                <img class="a3 " src="../assets/images/a3.png" alt="">
+                <img class="a4 " src="../assets/images/a4.png" alt="">
+                <img class="a5 " src="../assets/images/a5.png" alt="">
+                <img class="a6 " src="../assets/images/a6.png" alt="">
+                <img class="a7 " src="../assets/images/a7.png" alt="">
+            </div>
+            <div class="name">{{this.$route.params.name}}</div>
+            <div class="date">
+                <img v-if="wanwei" class="wanwei" :src='num[wanwei]' alt="">
+                <img v-if="qianwei" class="qianwei" :src='num[qianwei]' alt="">
+                <img v-if="baiwei" class="baiwei" :src='num[baiwei]' alt="">
+                <img v-if="shiwei" class="shiwei" :src='num[shiwei]' alt="">
+                <img class="gewei" :src='num[gewei]' alt="">
+            </div>
+            <img src="../assets/images/katong.png" class="katong">
         </div>
-        <div class="name">{{this.$route.params.name}}</div>
-        <div class="date">
-            <img v-if="wanwei" class="wanwei" :src='num[wanwei]' alt="">
-            <img v-if="qianwei" class="qianwei" :src='num[qianwei]' alt="">
-            <img v-if="baiwei" class="baiwei" :src='num[baiwei]' alt="">
-            <img v-if="shiwei" class="shiwei" :src='num[shiwei]' alt="">
-            <img class="gewei" :src='num[gewei]' alt="">
-        </div>
-        <img src="../assets/images/katong.png" class="katong">
     </div>
 </template>
 
@@ -39,7 +41,7 @@
                 shiwei: '',
                 baiwei: '',
                 qianwei: '',
-                wanwei:'',
+                wanwei: '',
                 num: [
                     require('@/assets/images/0.png'), require('@/assets/images/1.png'), require('@/assets/images/2.png'),
                     require('@/assets/images/3.png'), require('@/assets/images/4.png'), require('@/assets/images/5.png'),
@@ -64,7 +66,7 @@
                 this.shiwei = date[2]
                 this.baiwei = date[1]
                 this.qianwei = date[0]
-            }else if (length == 5) {
+            } else if (length == 5) {
                 this.gewei = date[4]
                 this.shiwei = date[3]
                 this.baiwei = date[2]
@@ -106,14 +108,23 @@
         /*animation-fill-mode: backwards;*/
         position: absolute;
         top: 41vw;
-        left: 28vw;
+        left: 50%;
+        transform: translate(-50%);
         font-size: 5.4vw;
-        font-weight: 900;
+        font-weight: 600;
         color: #89593a;
-        border-bottom: 1px solid #89593a;
         letter-spacing: 1vw;
-        text-align: center;
-        padding: 0 0 2px 0;
+        margin-left: 1vw;
+    }
+
+    .name::after {
+        content: '';
+        display: block;
+        background-image: url("../assets/images/bottompath.png");
+        background-size: 100%;
+        background-repeat: no-repeat;
+        height: 3px;
+        width: 20vw;
     }
 
     .date {
@@ -122,12 +133,12 @@
         align-items: center;
         justify-content: center;
         position: absolute;
-        top: 60vw;
-        left: 40vw;
+        top: 59.4vw;
+        left: 44.5vw;
     }
 
     .date img {
-        width: 5vw;
+        width: 4.4vw;
     }
 
     /*.qianwei{*/
@@ -188,21 +199,22 @@
         /*animation-delay:1000ms;*/
         width: 13vw;
         right: 23vw;
-        top:28vw;
+        top: 28vw;
     }
 
     .a5 {
         /*animation-delay:1200ms;*/
         width: 50vw;
         top: 50vw;
-        left: 27vw;
+        left: 50%;
+        transform: translate(-50%);
     }
 
     .a6 {
         /*animation-delay:1500ms;*/
-        width: 34vw;
-        top: 69vw;
-        left: 33vw;
+        width: 31vw;
+        top: 74vw;
+        left: 34.4vw;
     }
 
     .a7 {
@@ -213,6 +225,7 @@
     }
 
     .shareBtn {
+        position: absolute;
         width: 34vw;
         top: 108vw;
         left: 33vw;

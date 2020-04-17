@@ -1515,13 +1515,13 @@
         width: 68vw; top: 42vw; left: 17vw;
     }
     .a3{
-        width: 30vw;
-        top: 56vw;
-        left: 35vw;
+        width: 33vw;
+        top: 57vw;
+        left: 33vw;
     }
     .a4{
         width: 21vw;
-        top: 61vw;
+        top: 63vw;
         left: 39vw;
     }
     #form {
@@ -1540,7 +1540,7 @@
         width: 155px;
         height: 32px;
         line-height: 28px;
-        border-radius: 30px;
+        border-radius: 13px;
         outline: none;
         border: 2px solid #89593a;
         padding: 0 0 0 10px;
@@ -1550,11 +1550,13 @@
     }
 
      input::placeholder {
+         font-weight: 600;
         color: #89593a;
+         letter-spacing: 2px;
     }
 
      input:last-child {
-         font-size: 18px;
+         font-size: 19px;
          letter-spacing: 5px;
          text-align: center;
         border: 1px solid #fff;
