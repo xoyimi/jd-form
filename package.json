@@ -9,7 +9,9 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
     "html2canvas": "^1.0.0-rc.5",
+    "vconsole": "^3.3.4",
     "vue": "^2.6.11",
     "vue-axios": "^2.1.5",
     "vue-html2canvas": "0.0.4",
