@@ -18,7 +18,7 @@
         mounted() {
             this.$axios({
                 method: 'post',
-                url: 'http://xoyimi.top/getWxConfig',
+                url: 'http://hzjustdo.com/getWxConfig',
                 data: {url: encodeURIComponent(location.href.split('#')[0])} //向服务端提供授权url参数，并且不需要#后面的部分
             }).then((res) => {
                 let wxConfig = res.data;
@@ -47,7 +47,8 @@
                 this.$wx.updateAppMessageShareData({
                     title: '从新出发 有你财好', // 分享标题
                     desc: '这里是描述信息，这里是描述信息', // 分享描述
-                    imgUrl: this.imgUrl, // 分享图标
+                    link:'http://hzjustdo.com/',
+                    imgUrl: location.href+this.imgUrl, // 分享图标
                     success: function () {
                         // 用户点击了分享后执行的回调函数
                         console.log('用户点击了分享后执行的回调函数')
